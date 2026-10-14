@@ -111,6 +111,37 @@ Use suitable pull-up resistors on SDA/SCL if your module does not already provid
 
 ---
 
+## 🛠️ Development Tools & Technologies / เครื่องมือและเทคโนโลยีที่ใช้พัฒนา
+
+The IMU Analyzer is developed using ESP-IDF for embedded firmware and modern web technologies for real-time sensor monitoring and visualization.
+
+โปรเจกต์ IMU Analyzer พัฒนาด้วย ESP-IDF สำหรับระบบ Embedded และเทคโนโลยี Web สำหรับการแสดงผลข้อมูลเซนเซอร์แบบ Real-time
+
+| Category / หมวดหมู่ | Tools & Technologies |
+|---|---|
+| **Development Environment** | Visual Studio Code |
+| **Embedded Framework** | Espressif IoT Development Framework (ESP-IDF) v5.5.4 |
+| **Programming Languages** | C, TypeScript, HTML5, CSS3, Python |
+| **Microcontroller** | ESP32-S3 |
+| **Operating System** | FreeRTOS |
+| **Build System** | CMake, Ninja, ESP-IDF Build System |
+| **Web Build Tools** | Node.js, npm, TypeScript Compiler (tsc), esbuild |
+| **Communication** | I2C, Wi-Fi, HTTP, WebSocket |
+| **Data Visualization** | HTML Canvas, 2D Charts, 3D Visualization |
+| **Data Storage** | Non-Volatile Storage (NVS), CSV Export |
+| **Firmware Debugging** | ESP-IDF Serial Monitor, ESP_LOG |
+| **Version Control** | Git, GitHub |
+
+### Software Architecture / โครงสร้างซอฟต์แวร์
+
+- **Embedded Firmware:** Modular C components running on ESP-IDF and FreeRTOS.
+- **Sensor Processing:** MPU9250 driver, FIFO acquisition, Extended Kalman Filter (EKF), and calibration.
+- **Web Application:** Modular TypeScript with HTML/CSS, bundled using esbuild.
+- **Build Automation:** Python-based web build script integrated with the ESP-IDF build workflow.
+- **Real-Time Communication:** Wi-Fi SoftAP with HTTP and WebSocket communication.
+
+---
+
 ## 🏗️ System Architecture / สถาปัตยกรรมระบบ
 
 ```text
