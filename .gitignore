@@ -1,0 +1,6 @@
+build/
+sdkconfig
+sdkconfig.old
+web/node_modules/
+.vscode/
+.DS_Store

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>IMU Analyzer</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="dashboard">
+      <header class="glass-card top">
+        <div>
+          <h1>IMU Analyzer</h1>
+          <p>MPU9250 · Real-Time Sensor Analysis</p>
+          <small id="firmwareVersion">Firmware —</small>
+        </div>
+        <div id="connection" class="pill">Disconnected</div>
+      </header>
+
+      <p id="rates" class="rates">IMU: — · WebSocket: —</p>
+
+      <section class="measurements">
+        <article class="glass-card metric">
+          <small>YAW</small><strong id="yaw">—</strong>
+        </article>
+
+        <article class="glass-card metric">
+          <small>ROLL</small><strong id="roll">—</strong>
+        </article>
+
+        <article class="glass-card metric">
+          <small>PITCH</small><strong id="pitch">—</strong>
+        </article>
+      </section>
+
+      <section class="grid">
+        <article class="glass-card">
+          <h2>Accelerometer <span class="unit">(g)</span></h2>
+          <div class="graph"><canvas id="accChart"></canvas></div>
+          <p class="legend">
+            X <span class="cx">●</span> Y <span class="cy">●</span> Z
+            <span class="cz">●</span>
+          </p>
+        </article>
+
+        <article class="glass-card">
+          <h2>Gyroscope <span class="unit">(°/s)</span></h2>
+          <div class="graph"><canvas id="gyroChart"></canvas></div>
+          <p class="legend">
+            X <span class="cx">●</span> Y <span class="cy">●</span> Z
+            <span class="cz">●</span>
+          </p>
+        </article>
+
+        <article class="glass-card">
+          <h2>Magnetometer, calibrated <span class="unit">(µT)</span></h2>
+          <div class="graph"><canvas id="magChart"></canvas></div>
+          <p class="legend">
+            X <span class="cx">●</span> Y <span class="cy">●</span> Z
+            <span class="cz">●</span>
+          </p>
+        </article>
+
+        <article class="glass-card">
+          <h2>Calibration</h2>
+          <p>Status: <span id="calState">Idle</span></p>
+          <p>North ready: <span id="northReady">—</span></p>
+          <div class="buttons">
+            <button id="calStart">Start Calibration</button
+            ><button id="calStop">Stop &amp; Save</button
+            ><button id="setNorth">Set North</button>
+          </div>
+          <p class="muted">
+            Collect calibration samples by rotating the device through different
+            orientations.
+          </p>
+        </article>
+
+        <article class="glass-card">
+          <h2>3D Orientation <span class="unit">(roll / pitch / yaw)</span></h2>
+          <div class="graph"><canvas id="orientCanvas"></canvas></div>
+          <p class="muted">Drag to rotate the view.</p>
+        </article>
+
+        <article class="glass-card">
+          <h2>3D Magnetometer <span class="unit">(µT)</span></h2>
+          <div class="graph"><canvas id="mag3dCanvas"></canvas></div>
+          <div class="buttons">
+            <button id="mag3dClear">Clear Points</button>
+          </div>
+        </article>
+
+        <article class="glass-card">
+          <h2>CSV Log</h2>
+          <p>Status: <span id="logStatus">Stopped · 0 rows</span></p>
+          <div class="buttons">
+            <button id="logToggle">Start Recording</button
+            ><button id="logSave">Save CSV</button
+            ><button id="logClear">Clear</button>
+          </div>
+          <p class="muted">
+            Units: acc g, gyro °/s, mag µT, angles °. Up to 50,000 rows are kept in the browser.
+          </p>
+        </article>
+      </section>
+
+      <footer>
+        IMU processing runs independently of the Web GUI · ESP-IDF / ESP32-S3
+      </footer>
+    </main>
+    <script src="./main.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+menu "IMU Options"
+config ENABLE_IMU_RAW_LOG
+    bool "Enable IMU raw debug logs"
+    default n
+config ENABLE_I2C_SCAN
+    bool "Enable I2C scan at startup"
+    default n
+config ENABLE_I2C_RECOVERY
+    bool "Enable I2C bus recovery"
+    default n
+endmenu

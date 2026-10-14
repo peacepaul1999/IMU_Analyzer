@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "devDependencies": {
+    "esbuild": "^0.25.4",
+    "typescript": "^5.8.3"
+  },
+  "scripts": {
+    "build": "tsc --noEmit && esbuild ts/main.ts --bundle --format=iife --platform=browser --target=es2020 --outfile=dist/main.js"
+  }
+}
